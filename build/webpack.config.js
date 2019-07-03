@@ -6,6 +6,7 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const SassLintPlugin = require('sass-lint-webpack');
 
 // Files
 const utils = require('./utils')
@@ -47,7 +48,7 @@ module.exports = env => {
           use: [
             {
               loader: 'babel-loader',
-              options: { presets: ['es2015'] }
+              options: { presets: ['@babel/preset-env'] }
             }
           ]
         },
@@ -145,7 +146,6 @@ module.exports = env => {
         filename: 'assets/css/[name].[hash:7].bundle.css',
         chunkFilename: '[id].css',
       }),
-
       /*
         Pages
       */
@@ -156,10 +156,9 @@ module.exports = env => {
         template: 'views/index.pug',
         inject: true
       }),
-
       ...utils.pages(env),
       ...utils.pages(env, 'blog'),
-
+      new SassLintPlugin(),
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
