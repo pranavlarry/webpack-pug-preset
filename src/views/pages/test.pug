@@ -1,0 +1,19 @@
+extends ../layouts/master.pug
+
+block title
+  title My Page - Test
+
+block basicSeo
+  meta(name='description' content='test page')
+  meta(name='keywords', content='test, page')
+  meta(name='author' content='')
+
+block manifestBrowserconfigFiles
+  link(href='../manifest.json', rel='manifest')
+  meta(name='msapplication-config' content='../browserconfig.xml')  
+
+block content
+
+  //- Desktop page
+  section.page
+    h1.page__title--bold # Test page

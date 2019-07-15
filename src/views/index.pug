@@ -1,14 +1,32 @@
 extends ./layouts/master.pug
 
 block title
-  title My Page - Home
+  title Google Search
 
 block manifestBrowserconfigFiles
   link(href='../manifest.json', rel='manifest')
   meta(name='msapplication-config' content='../browserconfig.xml')
 
 block content
-
   //- Desktop page
   section.page
-    h1.page__title--color-red # Index page
+    nav.nav
+      button.menu
+        em.hamburger
+      .logo
+        a(href='#') 
+          img(src="../assets/images/googlelogo.png", alt="")
+      ul.navbar
+        li
+          a(href='#') Home
+        li
+          a(href='#') About
+        li
+          a(href='#') Services
+        li
+          a(href='#') Contact
+    section.hero
+      h1 Parallax Hero Image
+
+    section.content
+    
