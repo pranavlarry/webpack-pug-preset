@@ -14,6 +14,18 @@ block manifestBrowserconfigFiles
 
 block content
 
-  //- Desktop page
-  section.page
-    h1.page__title--bold # Contact page
+    button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModalCenter')
+     | Launch demo modal
+    // Modal
+    #exampleModalCenter.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalCenterTitle.modal-title Modal title
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            | ...
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary(type='button') Save changes
